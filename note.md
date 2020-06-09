@@ -65,9 +65,9 @@ _@Scope("prototype")_ creates a new object for each request
 
 ### Lifecycle
 
-_@PostConstruct("prototype")_ 
+_@PostConstruct_
 
-_@PreDestroy("prototype")_ 
+_@PreDestroy_
 
 # Spring MVC - Note 
 
