@@ -17,7 +17,7 @@ public class BaseballCoach implements Coach{
 
 	@Override
 	public String getDailyFortune() {
-		// TODO Auto-generated method stub
-		return null;
+		// use my fortune service to get a fortune
+		return fortuneService.getFortune();
 	}
 }
