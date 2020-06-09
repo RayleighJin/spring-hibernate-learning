@@ -2,21 +2,19 @@ package com.hao.springdemo;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class AnnotationDemoApp {
+public class AnnotationBeanScopeDemoApp {
 
 	public static void main(String[] args) {
-		// read spring config file
+		// load config file
 		ClassPathXmlApplicationContext context = 
 				new ClassPathXmlApplicationContext("applicationContext.xml");
-		
-		// get the bean from the spring container
+		// retirve bean
 		Coach theCoach = context.getBean("tennisCoach", Coach.class);
-		
-		// call a method on the bean
-		System.out.println(theCoach.getDailyWorkout());
+//		Coach alphaCoach = context.getBean("tennisCoach", Coach.class);
+		// do the work
+//		boolean result = (theCoach == alphaCoach);
 		System.out.println(theCoach.getDailyFortune());
-		
-		// close the bean
+		// close the context
 		context.close();
 	}
 
