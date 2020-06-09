@@ -21,3 +21,15 @@
 1. What is Dependency Injection?
 
    
+
+## Annotations
+
+Meta-data about a class
+
+Spring would scan Java classes for special annotations, and automatically register the beans in Spring container
+
+1. Enable component scannint in Spring config file
+2. Add @Component("bean ID") annotations to Java classes
+3. Retrieve bean from Spring container
+
+Class name: KendoCoach -> Default bean ID: kendoCoach
