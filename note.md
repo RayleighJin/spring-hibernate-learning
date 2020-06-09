@@ -20,7 +20,7 @@
 
 * What is Dependency Injection?
 
-## Annotations
+## Annotations Config
 
 Meta-data about a class
 
@@ -68,6 +68,26 @@ _@Scope("prototype")_ creates a new object for each request
 _@PostConstruct_
 
 _@PreDestroy_
+
+## Java Config
+
+1. Create a Java class and annotate as _@Configuration_
+2. Add component scanning support _@ComponentScan("package name")_ (optional)
+3. Read Spring Java configuration class
+4. Retrieve bean from Spring container
+
+__Define beans with Java code__
+
+1. Define method to expose bean _@Bean_, the method name would be the bean ID
+2. Inject bean dependencies
+3. Read Spring Java configuration class
+4. Retrieve bean from Spring container
+
+__Injecting values__
+
+1. Load property file with _@PropertySource("classpath:filename")_
+
+2. Reference values with _@Value("${property id}")_
 
 # Spring MVC - Note 
 
