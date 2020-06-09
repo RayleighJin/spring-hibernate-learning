@@ -24,7 +24,7 @@
 
 Meta-data about a class
 
-###IoC
+### IoC
 
 Spring would scan Java classes for special annotations, and automatically register the beans in Spring container
 
@@ -34,7 +34,7 @@ Spring would scan Java classes for special annotations, and automatically regist
 
 Class name: KendoCoach --> Default bean ID: kendoCoach
 
-###DI 
+### DI 
 
 _@Qualifier("bean ID")_ for multi implementation, but it should be inside the constructor parentheses when used in constructor case
 
@@ -69,6 +69,6 @@ _@PostConstruct("prototype")_
 
 _@PreDestroy("prototype")_ 
 
-#Spring MVC - Note 
+# Spring MVC - Note 
 
-#Hibernate - Note 
+# Hibernate - Note 
