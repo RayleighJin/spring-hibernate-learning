@@ -2,7 +2,7 @@
 
 Keep track of my process in learning Spring & Hibernate
 
-[Note](./note.md)
+[📖Note](./note.md)
 
 
 
