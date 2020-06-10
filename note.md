@@ -91,4 +91,19 @@ __Injecting values__
 
 # Spring MVC - Note 
 
+![SpringMVC_arch](/Users/hao/Personal Projects/Spring-Learn/pic/SpringMVC_arch.png)
+
+Front Controller already built by Spring
+
+__Model__
+
+* Contains the data
+* Store/retrieve data via backend systems
+* Place the data in the model
+
+__View Template__
+
+* Most common is JSP + JSTL, there are also many else e.g. Thymeleaf, Groovy, etc
+* Model data comes over to view template and JSP page can read the model data and display it
+
 # Hibernate - Note 
