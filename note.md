@@ -116,10 +116,20 @@ __Steps__
 
 3. Add request mapping to Controller method
 
-   _@RequestMappint("/")_
+   _@RequestMapping("/")_
+
+   Get request parameters with either _req.getParameter("param name")_ 
+
+   or 
+
+   passing the param as _@RequestParam("param name") String method_param_name_
 
 4. Return View name 无后缀
 
 5. Develop View page
+
+__Request Mapping__
+
+Can be of Parent-Child like mode
 
 # Hibernate - Note 
