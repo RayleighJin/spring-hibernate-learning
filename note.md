@@ -106,4 +106,20 @@ __View Template__
 * Most common is JSP + JSTL, there are also many else e.g. Thymeleaf, Groovy, etc
 * Model data comes over to view template and JSP page can read the model data and display it
 
+__Steps__
+
+1. Create Controller class
+
+   Annotate class with _@Controller_, which inherits from _@Component_ supporting scanning
+
+2. Define Controller method
+
+3. Add request mapping to Controller method
+
+   _@RequestMappint("/")_
+
+4. Return View name 无后缀
+
+5. Develop View page
+
 # Hibernate - Note 
