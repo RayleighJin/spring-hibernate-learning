@@ -203,3 +203,20 @@ public class CourseCodeConstraintValidator
 
 
 # Hibernate - Note 
+
+![Hibernate_func](/Users/hao/Personal Projects/Spring-Learn/pic/Hibernate_func.png)
+
+Hibernate works as a connection between Java program and Database
+
+Hibernate uses JDBC in the background to do all the low level work
+
+__ORM__ Object Relational Mapping
+
+1. Add Hibernate config file
+2. Annotate Java classes (for mapping)
+   1. Map class to database table _@Entity @Table(name="table name")_
+   2. Map field to table column _@Id_ (for primary key) _@Column(name="col name")_
+3. Develop Java code to perform database operations
+
+__Entity Class__ is a Java class that is mapped to a database table
+
