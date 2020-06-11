@@ -132,4 +132,74 @@ __Request Mapping__
 
 Can be of Parent-Child like mode
 
+__Validation__
+
+1. Add validation rule to the class
+2. Display error message on HTML form
+3. Perform validation in the Controller class
+
+_@InitBinder_ works as a pre-processor for all web requests coming to the Controller
+
+dataBinder.registerCustomEditor();
+
+__Custom Validation__
+
+```java
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+import javax.validation.Constraint;
+import javax.validation.Payload;
+
+@Constraint(validatedBy = CourseCodeConstraintValidator.class)
+@Target({ElementType.METHOD, ElementType.FIELD})
+@Retention(RetentionPolicy.RUNTIME)
+public @interface CourseCode {
+
+	// define default course code
+	public String value() default "EECS";
+	
+	// define default error message
+	public String message() default "must start with EECS";
+	
+	// define default groups
+	public Class<?>[] groups() default {};
+	
+	// define default payloads
+	public Class<? extends Payload>[] payload() default {};
+}
+```
+
+```java
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
+
+public class CourseCodeConstraintValidator
+	implements ConstraintValidator<CourseCode, String> {
+	
+	private String coursePrefix;
+	
+	@Override
+	public void initialize(CourseCode courseCode) {
+		coursePrefix = courseCode.value();
+	}
+	
+	@Override
+	public boolean isValid(String code, ConstraintValidatorContext constraintValidatorContext) {
+		
+    boolean result = true;
+   
+		if (code == null) {
+			return result;
+		}
+		result = code.startsWith(coursePrefix);
+		return result;
+	}	
+}
+```
+
+
+
 # Hibernate - Note 
