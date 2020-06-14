@@ -91,7 +91,7 @@ __Injecting values__
 
 # Spring MVC - Note 
 
-![SpringMVC_arch](/Users/hao/Personal Projects/Spring-Learn/pic/SpringMVC_arch.png)
+![SpringMVC_arch](pic/SpringMVC_arch.png)
 
 Front Controller already built by Spring
 
@@ -204,7 +204,7 @@ public class CourseCodeConstraintValidator
 
 # Hibernate - Note 
 
-![Hibernate_func](/Users/hao/Personal Projects/Spring-Learn/pic/Hibernate_func.png)
+![Hibernate_func](pic/Hibernate_func.png)
 
 Hibernate works as a connection between Java program and Database
 
