@@ -220,3 +220,113 @@ __ORM__ Object Relational Mapping
 
 __Entity Class__ is a Java class that is mapped to a database table
 
+__HQL__ Hibernate Query Language, a SQL like query language, but should use Java property name instead of database column name
+
+__CRUD__ Create/Read/Update/Delete
+
+## Mapping
+
+### One to One
+
+Can have more tha one strategy using _cascade={CascadeType.MERGE, CascadeType.REFRESH}_
+
+```java
+/*
+Instructor Class
+*/
+@OneToOne(cascade = CascadeType.ALL) // specify cascade type
+@JoinColumn(name="instructor_detail_id") // name here is the foreign key 只有外键(下面定义的dield)才有这个annotation
+private InstructorDetail instructorDetail; // the referenced entity
+```
+
+```java
+/*
+Main App
+*/
+System.out.println(">> Details of the Instructor: " + instructor.getInstructorDetail());
+```
+
+Double the steps above in _InstructorDetail_ class to create __Bi-Directional__ one to one mapping
+
+```java
+/*
+InstructorDetail Class
+*/
+@OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL)
+private Instructor instructor;
+```
+
+```java
+/*
+Main App
+*/
+System.out.println(">> Associated Instructor: " + instructorDetail.getInstructor());
+```
+
+Handle leak error
+
+```java
+/*
+Main App
+*/
+try {
+  session.beginTransaction();
+  // do some work
+  session.getTransaction().commit();
+}
+catch (Exception e) {
+  e.printStackTrace();
+}
+finally {
+  session.close(); // close the session to prevent the leak
+  factory.close();
+}
+```
+
+### One to Many
+
+```java
+/*
+City Class
+*/
+@OneToMany(mappedBy="city") // 一个城市有多个大学，所以mapped by城市，亦即mapped by ONE(to前面那个)
+@Cascade(CascadeType.ALL)
+private List<College> college;
+```
+
+### Eager Loading & Lazy Loading
+
+__Eager__ helps to pre-fetch
+
+__Lazy__ fetches when demanded
+
+### Many to Many
+
+__Inverse__ refers to the other side of the relationship
+
+```java
+/*
+Student Class
+*/
+@ManyToMany(fetch = FetchType.LAZY,
+            cascade = {CascadeType.DETACH, CascadeType.MERGE,
+                       CascadeType.PERSIST, CascadeType.REFRESH})
+@JoinTable(name="course_student",
+           joinColumns = @JoinColumn(name="student_id"),
+           inverseJoinColumns = @JoinColumn(name="course_id")) // the other side is the course table
+private List<Course> courses;
+```
+
+```java
+/*
+Course Class
+*/
+@ManyToMany(fetch = FetchType.LAZY,
+            cascade = {CascadeType.DETACH, CascadeType.MERGE,
+                       CascadeType.PERSIST, CascadeType.REFRESH})
+@JoinTable(name="course_student",
+           joinColumns = @JoinColumn(name="course_id"),
+           inverseJoinColumns = @JoinColumn(name="student_id")) // the other side is the student table
+private List<Student> students;
+```
+
